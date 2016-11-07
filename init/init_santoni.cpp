@@ -35,6 +35,8 @@
 #include "log.h"
 #include "util.h"
 
+static char board_id[PROP_VALUE_MAX];
+
 static int read_file2(const char *fname, char *data, int max_size)
 {
     int fd, rc;
@@ -56,6 +58,22 @@ static int read_file2(const char *fname, char *data, int max_size)
     close(fd);
 
     return 1;
+}
+
+static void import_cmdline(char *name, int for_emulator)
+{
+    char *value = strchr(name, '=');
+    int name_len = strlen(name);
+    const char s[2] = ":";
+
+    if (value == 0) return;
+    *value++ = 0;
+    if (name_len == 0) return;
+
+    if (!strcmp(name, "board_id")) {
+        value = strtok(value, s);
+        strlcpy(board_id, value, sizeof(board_id));
+    }
 }
 
 static void init_alarm_boot_properties()
@@ -91,5 +109,18 @@ static void init_alarm_boot_properties()
 
 void vendor_load_properties()
 {
+    import_kernel_cmdline(0, import_cmdline);
+
+    property_set("ro.product.wt.boardid", board_id);
+    ERROR("Detected board ID=%s\n", board_id);
+
+    if (!strcmp(board_id, "S88536AA2")) {
+        property_set("ro.build.display.wtid", "SW_S88536AA2_V028_M11_XM_A13N_USR_TEST");
+    } else if (!strcmp(board_id, "S88536BA2")) {
+        property_set("ro.build.display.wtid", "SW_S88536BA2_V028_M11_XM_A13N_USR_TEST");
+    } else if (!strcmp(board_id, "S88536CA2")) {
+        property_set("ro.build.display.wtid", "SW_S88536CA2_V028_M11_XM_A13N_USR_TEST");
+    }
+
     init_alarm_boot_properties();
 }
