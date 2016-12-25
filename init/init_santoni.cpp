@@ -129,5 +129,11 @@ void vendor_load_properties()
         property_set("ro.build.display.wtid", "SW_S88536CA2_V028_M11_XM_A13N_USR_TEST");
     }
 
+    if (!strcmp(board_id, "S88536CA2")) {
+        property_set("ro.product.model", "Redmi 4");
+    } else {
+        property_set("ro.product.model", "Redmi 4X");
+    }
+
     init_alarm_boot_properties();
 }

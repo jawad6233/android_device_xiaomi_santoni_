@@ -26,5 +26,4 @@ TARGET_VENDOR := Xiaomi
 PRODUCT_DEVICE := santoni
 PRODUCT_NAME := full_santoni
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Redmi 4X
 PRODUCT_MANUFACTURER := Xiaomi
