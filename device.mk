@@ -130,6 +130,10 @@ PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
 
+# Fs_config
+PRODUCT_PACKAGES += \
+    fs_config_files
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8937 \
