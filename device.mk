@@ -201,6 +201,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8937
 
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson
