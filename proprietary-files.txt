@@ -819,13 +819,11 @@ vendor/lib/libsmwrapper.so
 # Media
 lib/libOmxAacEnc.so
 lib/libOmxAmrEnc.so
-lib/libOmxCore.so
 lib/libOmxEvrcEnc.so
 lib/libOmxQcelp13Enc.so
 lib/libOmxSwVdec.so
 lib/libOmxSwVencMpeg4.so
 lib/libOmxVdec.so
-lib/libOmxVenc.so
 lib/libOmxVpp.so
 lib/libmm-omxcore.so
 lib/libqomx_core.so
