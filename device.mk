@@ -105,6 +105,9 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    camera.msm8937 \
+    libmm-qcamera \
+    mm-qcamera-app \
     Camera2
 
 # Display
